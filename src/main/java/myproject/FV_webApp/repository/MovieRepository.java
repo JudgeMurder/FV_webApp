@@ -3,5 +3,13 @@ package myproject.FV_webApp.repository;
 import myproject.FV_webApp.model.Movie;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
+
+    // SELECT*FROM movie WHERE movieTitle like '%a%';
+
+    Optional<Movie> findByMovieID(int id);
+    Optional<Movie> findByMovieTitle(String title);
+    Iterable<Movie> findByMovieTitleLike(String titleLike);
 }
