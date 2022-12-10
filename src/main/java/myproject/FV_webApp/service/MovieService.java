@@ -20,4 +20,11 @@ public class MovieService {
     public Optional<Movie> getMovie(int movieId) {
         return movieRepository.findById(movieId);
     }
+
+    public Optional<Movie> getMovieByID (int id) {
+        return movieRepository.findByMovieID(id);
+    }
+    public Optional<Movie> getMovieByTitle (String title) { return movieRepository.findByMovieTitle(title);}
+    public Iterable<Movie> getMovieByTitleLike (String titleLike) {
+        return movieRepository.findByMovieTitleLike(titleLike);}
 }
