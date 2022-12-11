@@ -14,6 +14,12 @@ import java.util.Date;
         }),
         @SecondaryTable(name = "poster", pkJoinColumns = {
                 @PrimaryKeyJoinColumn(name = "posterID")
+        }),
+        @SecondaryTable(name = "studio", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "studioID")
+        }),
+        @SecondaryTable(name = "trailer", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "trailerID")
         })
 })
 @Getter @Setter
@@ -38,6 +44,10 @@ public class Movie {
     private String genreType;
     @Column(name = "posterlink", table = "poster")
     private String posterLink;
+    @Column(name = "studioname", table = "studio")
+    private String studioName;
+    @Column(name = "trailerurl", table = "trailer")
+    private String trailerURL;
 
     @Override
     public String toString() {

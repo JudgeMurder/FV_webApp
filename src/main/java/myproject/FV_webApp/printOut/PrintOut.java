@@ -15,6 +15,6 @@ public class PrintOut implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        movieRepository.findAll().forEach(System.out::println);
+//        movieRepository.findAll().forEach(System.out::println);
     }
 }

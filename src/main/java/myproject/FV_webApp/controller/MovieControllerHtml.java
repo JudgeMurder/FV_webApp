@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/movie/templates")
-public class MovieTemplatesController {
+public class MovieControllerHtml {
 
     @Autowired
     private MovieService movieService;

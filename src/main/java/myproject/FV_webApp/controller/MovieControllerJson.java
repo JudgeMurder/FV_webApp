@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/homepage")
-public class MovieController {
+public class MovieControllerJson {
 
     @Autowired
     private MovieService movieService;
