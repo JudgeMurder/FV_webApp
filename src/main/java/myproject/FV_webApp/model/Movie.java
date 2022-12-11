@@ -2,17 +2,20 @@ package myproject.FV_webApp.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Time;
-import java.time.Month;
-import java.time.Year;
 import java.util.Date;
 
 @Entity
 @Table(name = "movie")
+@SecondaryTables({
+        @SecondaryTable(name = "genre", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "genreID")
+        }),
+        @SecondaryTable(name = "poster", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "posterID")
+        })
+})
 @Getter @Setter
 public class Movie {
 
@@ -31,6 +34,10 @@ public class Movie {
     private String movieCertificate;
     @Column(name = "movierating")
     private String movieRating;
+    @Column(name = "genretype", table = "genre")
+    private String genreType;
+    @Column(name = "posterlink", table = "poster")
+    private String posterLink;
 
     @Override
     public String toString() {
@@ -41,7 +48,8 @@ public class Movie {
                 ", Release Date - '" + movieReleaseDate + '\'' +
                 ", Runtime - '" + movieRuntime + '\'' +
                 ", Certificate - '" + movieCertificate + '\'' +
-                ", Rating - '" + movieRating +
+                ", Rating - '" + movieRating + '\'' +
+                ", Genre '" + genreType +
                 "'";
     }
 }
