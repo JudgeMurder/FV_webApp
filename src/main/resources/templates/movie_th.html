@@ -35,6 +35,15 @@
     <div class="movie-data">
         <p th:text="${key_movie.movieRating}"> Some text here</p>
     </div>
+    <div class="label"><p>Genre: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.genreType}"> Some text here</p>
+    </div>
+    </div>
+    <div class="label"><p>Poster: </p></div>
+    <div class="movie-data">
+        <img th:src="${key_movie.posterLink}">
+    </div>
 </div>
 </body>
 </html>
