@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -42,6 +43,14 @@ public class MovieTemplatesController {
         movie.isPresent();
         model.addAttribute("key_movie", movie.get());
         return "movie_th";
+    }
+
+    //    http://localhost:8080/movie/templates/all
+    @GetMapping(path = "/all")
+    public String getAllMovies(Model model) {
+        List<Movie> movies = (List<Movie>) movieService.getAllMovies();
+        model.addAttribute("list", movies);
+        return "movies_th";
     }
 
 
