@@ -11,38 +11,89 @@
 </head>
 <body>
 <div class="movie" th:object="${key_movie}">
-    <div class="label"><p>Movie Title: </p></div>
+    <div class="movie-data">
+        <img th:src="${key_movie.posterLink}">
+    </div>
+<!--    <div class="label"><p>Movie Title: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.movieTitle}"> Some text here</p>
-    </div>
-    <div class="label"><p>Plot Summary: </p></div>
+<!--    <div class="label"><p>Plot Summary: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.moviePlot}"> Some text here</p>
     </div>
-    <div class="label"><p>Release Date: </p></div>
+<!--    <div class="label"><p>Release Date: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.movieReleaseDate}"> Some text here</p>
     </div>
-    <div class="label"><p>Runtime: </p></div>
+<!--    <div class="label"><p>Runtime: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.movieRuntime}"> Some text here</p>
     </div>
-    <div class="label"><p>Certificate: </p></div>
+<!--    <div class="label"><p>Certificate: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.movieCertificate}"> Some text here</p>
     </div>
-    <div class="label"><p>Rating: </p></div>
+<!--    <div class="label"><p>Rating: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.movieRating}"> Some text here</p>
     </div>
-    <div class="label"><p>Genre: </p></div>
+<!--    <div class="label"><p>Genre: </p></div>-->
     <div class="movie-data">
         <p th:text="${key_movie.genreType}"> Some text here</p>
     </div>
-    </div>
-    <div class="label"><p>Poster: </p></div>
+
+<!--    <div class="label"><p>Studio: </p>-->
     <div class="movie-data">
-        <img th:src="${key_movie.posterLink}">
+        <p th:text="${key_movie.studioName}"> Some text here</p>
+    </div>
+    <div class="movie-data">
+        <a th:href="${key_movie.trailerURL}" target="_blank">
+            <style>
+.button {
+  display: inline-block;
+  border-radius: 20px;
+  background-color: #f1cf3b;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: garamond;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+            </head>
+            <body>
+            <button class="button" style="vertical-align:middle"><span>Play Trailer </span></button>
+        </a>
     </div>
 </div>
 </body>
