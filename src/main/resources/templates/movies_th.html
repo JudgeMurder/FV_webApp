@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/movies/basic.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/movies/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/styles/movies/basic.css">
+    <link rel="stylesheet" href="/static/styles/movies/index.css">
+</head>
+
+<body>
+<table id="movieDataTable" class="table">
+    <tr>
+        <th class="th">#</th>
+        <th class="th">id</th>
+        <th class="th">Movie Title</th>
+        <th class="th">Plot Summary</th>
+        <th class="th">Release Date</th>
+        <th class="th">Runtime</th>
+        <th class="th">Certificate</th>
+        <th class="th">Rating</th>
+        <th class="th">Genre</th>
+    </tr>
+    <tr th:each="customer : ${listas}">
+        <td class="td" th:text="${movieStat.index+1}"></td>
+        <td class="td" th:text="${movie.movieID}"></td>
+        <td class="td" th:text="${movie.movieTitle}"></td>
+        <td class="td" th:text="${movie.moviePlot}"></td>
+        <td class="td" th:text="${movie.movieReleaseDate}"></td>
+        <td class="td" th:text="${movie.movieRuntime}"></td>
+        <td class="td" th:text="${movie.movieCertificate}"></td>
+        <td class="td" th:text="${movie.movieRating}"></td>
+        <td class="td" th:text="${movie.genreType}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

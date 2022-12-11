@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/styles/movie/basic.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/movie/index.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/styles/movie/basic.css"/>
+    <link rel="stylesheet" href="/static/styles/movie/index.css"/>
+</head>
+<body>
+<div class="movie" th:object="${key_movie}">
+    <div class="label"><p>Movie Title: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.movieTitle}"> Some text here</p>
+    </div>
+    <div class="label"><p>Plot Summary: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.moviePlot}"> Some text here</p>
+    </div>
+    <div class="label"><p>Release Date: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.movieReleaseDate}"> Some text here</p>
+    </div>
+    <div class="label"><p>Runtime: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.movieRuntime}"> Some text here</p>
+    </div>
+    <div class="label"><p>Certificate: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.movieCertificate}"> Some text here</p>
+    </div>
+    <div class="label"><p>Rating: </p></div>
+    <div class="movie-data">
+        <p th:text="${key_movie.movieRating}"> Some text here</p>
+    </div>
+</div>
+</body>
+</html>
