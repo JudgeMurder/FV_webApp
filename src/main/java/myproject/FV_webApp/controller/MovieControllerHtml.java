@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,17 +24,6 @@ public class MovieControllerHtml {
     @GetMapping(path = "/test")
     public String getTestText() {
         return "html_test";
-    }
-
-    //    http://localhost:8080/movie/templates/firstpage/3
-    @GetMapping(path = "/firstpage/{id}")
-    public String getMovieDetails(@PathVariable int id, Model model) {
-        Optional<Movie> movie = movieService.getMovieByID(id);
-        model.addAttribute("movie_title", movie.get().getMovieTitle());
-        model.addAttribute("movie_release_date", movie.get().getMovieReleaseDate());
-        model.addAttribute("movie_runtime", movie.get().getMovieRuntime()+" minutes");
-        model.addAttribute("movie_rating", movie.get().getMovieRating());
-        return "firstpage";
     }
 
     //    http://localhost:8080/movie/templates/3
@@ -52,6 +42,4 @@ public class MovieControllerHtml {
         model.addAttribute("list", movies);
         return "movies_th";
     }
-
-
 }

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Movies by You</title>
     <link th:href="@{/styles/movies/basic.css}" rel="stylesheet"/>
     <link th:href="@{/styles/movies/index.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="/static/styles/movies/basic.css">
@@ -11,6 +10,7 @@
 </head>
 
 <body>
+<h1>Movies By You</h1>
 <table id="movieDataTable" class="table">
     <tr>
 <!--        <th class="th">#</th>-->
@@ -26,7 +26,7 @@
     <tr th:each="movie : ${list}">
 <!--        <td class="td" th:text="${movieStat.index+1}"></td>-->
 <!--        <td class="td" th:text="${movie.movieID}"></td>-->
-        <td class="td" th:text="${movie.movieTitle}"></td>
+            <td class="td" th:text="${movie.movieTitle}"></td>
 <!--        <td class="td" th:text="${movie.moviePlot}"></td>-->
 <!--        <td class="td" th:text="${movie.movieReleaseDate}"></td>-->
 <!--        <td class="td" th:text="${movie.movieRuntime}"></td>-->

@@ -26,5 +26,6 @@ public class MovieService {
     }
     public Optional<Movie> getMovieByTitle (String title) { return movieRepository.findByMovieTitle(title);}
     public Iterable<Movie> getMovieByTitleLike (String titleLike) {
-        return movieRepository.findByMovieTitleLike(titleLike);}
+        return movieRepository.findByMovieTitleLike(titleLike);
+    }
 }
