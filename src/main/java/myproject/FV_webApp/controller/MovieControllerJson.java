@@ -52,6 +52,4 @@ public class MovieControllerJson {
     Iterable<Movie> getMovieByTitleLike(@PathVariable String titleLike) {
         return movieService.getMovieByTitleLike("%".concat(titleLike.concat("%")));
     }
-
-
 }

@@ -32,7 +32,7 @@ public class MovieControllerHtml {
         Optional<Movie> movie = movieService.getMovieByID(id);
         movie.isPresent();
         model.addAttribute("key_movie", movie.get());
-        return "movie_th";
+        return "movieDetails";
     }
 
     //    http://localhost:8080/movie/templates/all
@@ -40,6 +40,12 @@ public class MovieControllerHtml {
     public String getAllMovies(Model model) {
         List<Movie> movies = (List<Movie>) movieService.getAllMovies();
         model.addAttribute("list", movies);
-        return "movies_th";
+        return "movieTitleList";
+    }
+
+    //    http://localhost:8080/movie/templates/homepage
+    @GetMapping(path = "/homepage")
+    public String showHomePage(Model model) {
+        return "homepage";
     }
 }
