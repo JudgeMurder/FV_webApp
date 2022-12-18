@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
-    // SELECT*FROM movie WHERE movieTitle like '%a%';
-
     Optional<Movie> findByMovieID(int id);
     Optional<Movie> findByMovieTitle(String title);
     Iterable<Movie> findByMovieTitleLike(String titleLike);

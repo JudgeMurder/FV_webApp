@@ -4,67 +4,43 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "movie")
 @SecondaryTables({
         @SecondaryTable(name = "genre", pkJoinColumns = {
                 @PrimaryKeyJoinColumn(name = "genreID")
         }),
-        @SecondaryTable(name = "poster", pkJoinColumns = {
-                @PrimaryKeyJoinColumn(name = "posterID")
+        @SecondaryTable(name = "media", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "mediaID")
         }),
-        @SecondaryTable(name = "studio", pkJoinColumns = {
-                @PrimaryKeyJoinColumn(name = "studioID")
+        @SecondaryTable(name = "user_data", pkJoinColumns = {
+                @PrimaryKeyJoinColumn(name = "userID")
         }),
-        @SecondaryTable(name = "trailer", pkJoinColumns = {
-                @PrimaryKeyJoinColumn(name = "trailerID")
-        }),
-        @SecondaryTable(name = "review", pkJoinColumns = {
-                @PrimaryKeyJoinColumn(name = "reviewID")
-        })
+
 })
 @Getter @Setter
 public class Movie {
 
     @Id
-    @Column(name = "movieid")
-    private Integer movieID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int movieID;
+
     @Column(name = "movietitle")
     private String movieTitle;
-    @Column(name = "movieplot")
-    private String moviePlot;
     @Column(name = "moviereleasedate")
-    private Date movieReleaseDate;
+    private Integer movieReleaseDate;
     @Column(name = "movieruntime")
     private Integer movieRuntime;
-    @Column(name = "moviecertificate")
-    private String movieCertificate;
-    @Column(name = "movierating")
-    private String movieRating;
-    @Column(name = "genretype", table = "genre")
+    @Column(name = "movieplot")
+    private String moviePlot;
+    @Column(name = "genretype",table = "genre")
     private String genreType;
-    @Column(name = "posterlink", table = "poster")
+    @Column(name = "trailerlink", table = "media")
+    private String trailerLink;
+    @Column(name = "posterlink", table = "media")
     private String posterLink;
-    @Column(name = "studioname", table = "studio")
-    private String studioName;
-    @Column(name = "trailerurl", table = "trailer")
-    private String trailerURL;
-    @Column(name = "reviewbody", table = "review")
-    private String reviewBody;
-
-    @Override
-    public String toString() {
-        return
-//                "movieID" + movieID +
-                "Movie Title - '" + movieTitle + '\'' +
-                ", Plot Summary - '" + moviePlot + '\'' +
-                ", Release Date - '" + movieReleaseDate + '\'' +
-                ", Runtime - '" + movieRuntime + '\'' +
-                ", Certificate - '" + movieCertificate + '\'' +
-                ", Rating - '" + movieRating + '\'' +
-                ", Genre '" + genreType +
-                "'";
-    }
+    @Column(name = "userrating", table = "user_data")
+    private Integer userRating;
+    @Column(name = "userreview", table = "user_data")
+    private String userReview;
 }

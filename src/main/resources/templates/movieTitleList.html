@@ -14,7 +14,7 @@
 <div>
     <a class="h3 text-primary" th:href="@{/movies/new}">Search</a>
 </div>
-<table id="movieDataTable" class="table table-bordered float-sm-left">
+<table id="movieDataTable" class="table table-bordered float-sm-left" align="center">
     <thead class="thead-dark">
     <tr>
         <th class="th">Movie Title</th>
@@ -29,13 +29,9 @@
 <th:block th:each="movie : ${list}">
     <tr>
         <td class="float-sm2-left">[[${movie.movieTitle}]]</td>
-        <td>
-            <a class="h4 mr-3 text-primary float-sm2-left" th:href="@{'movies/edit/' + ${movie.movieID}}">Edit </a>
-        </td>
     </tr>
 </th:block>
 </tbody>
-    </tr>
 </table>
 
 </body>
