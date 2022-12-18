@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies by You</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+
+<body>
+<h1>Movies By You</h1>
+<div>
+    <a class="h3 text-primary" th:href="@{/movies/new}">Search</a>
+</div>
+<table id="movieDataTable" class="table table-bordered float-sm-left">
+    <thead class="thead-dark">
+    <tr>
+        <th class="th">Movie Title</th>
+<!--        <th class="th">Plot Summary</th>-->
+<!--        <th class="th">Release Date</th>-->
+<!--        <th class="th">Runtime</th>-->
+<!--        <th class="th">Certificate</th>-->
+<!--        <th class="th">Rating</th>-->
+<!--        <th class="th">Genre</th>-->
+    </tr>
+    <tbody>
+<th:block th:each="movie : ${list}">
+    <tr>
+        <td class="float-sm2-left">[[${movie.movieTitle}]]</td>
+        <td>
+            <a class="h4 mr-3 text-primary float-sm2-left" th:href="@{'movies/edit/' + ${movie.movieID}}">Edit </a>
+        </td>
+    </tr>
+</th:block>
+</tbody>
+    </tr>
+</table>
+
+</body>
+</html>
