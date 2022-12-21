@@ -10,4 +10,6 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
     Optional<Movie> findByMovieID(int id);
     Optional<Movie> findByMovieTitle(String title);
     Iterable<Movie> findByMovieTitleLike(String titleLike);
+
+    Long countByMovieID(Integer id);
 }

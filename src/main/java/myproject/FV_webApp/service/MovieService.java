@@ -16,16 +16,33 @@ public class MovieService {
     public Iterable<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
-
-    public Optional<Movie> getMovie(int movieId) {
-        return movieRepository.findById(movieId);
-    }
-
     public Optional<Movie> getMovieByID (int id) {
         return movieRepository.findByMovieID(id);
     }
     public Optional<Movie> getMovieByTitle (String title) { return movieRepository.findByMovieTitle(title);}
-    public Iterable<Movie> getMovieByTitleLike (String titleLike) {
-        return movieRepository.findByMovieTitleLike(titleLike);
+    public Iterable<Movie> getMovieByTitleLike (String movieTitle) {
+        return movieRepository.findByMovieTitleLike(
+                String.format("%%%s%%", movieTitle)
+        );
+    }
+
+    public void saveMovie(Movie movie) {
+        movieRepository.save(movie);
+    }
+
+    public Movie getMovie(Integer id) throws MovieNotFoundException {
+        Optional<Movie> movieFound = movieRepository.findByMovieID(id);
+        if (movieFound.isPresent()) {
+            return movieFound.get();
+        }
+        throw new MovieNotFoundException("Movie not found");
+    }
+
+    public void delete(Integer id) throws MovieNotFoundException {
+        Long count = movieRepository.countByMovieID(id);
+        if (count == null || count == 0) {
+            throw new MovieNotFoundException("Movie not found");
+        }
+        movieRepository.deleteById(id);
     }
 }
