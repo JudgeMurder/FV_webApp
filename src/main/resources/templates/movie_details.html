@@ -3,87 +3,68 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>movieDetails</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <style>
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+    </style>
 </head>
 <body>
-<div class="movie" th:object="${key_movie}">
-    <div class="movie-data float-sm-left">
-        <img th:src="${key_movie.posterLink}">
+<div class="movie" th:object="${movie_key}">
+    <div class="movie-data float-sm-left table-striped border-colapse">
+        <img th:src="${movie_key.posterLink}">
     </div>
-
-<!--    <div class="container">-->
-<!--        <div class="row g-2">-->
-<!--            <div class="col-6">-->
-<!--                <div class="p-3 border bg-light">Custom column padding-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-6">-->
-<!--                <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--            </div>-->
-<!--            <div class="col-6">-->
-<!--                <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--            </div>-->
-<!--            <div class="col-6">-->
-<!--                <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 
     <div class="list-inline">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Movie Title</span></label>
-        <p class="movie-data" th:text="${key_movie.movieTitle}"</p>
+        <p class="movie-data" th:text="${movie_key.movieTitle}"</p>
     </div>
 
-    <div class="float-none table-bordered">
+    <div class="float-none table-collapse table-bordered">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Plot Summary</span></label>
-        <p class="movie-data" th:text="${key_movie.moviePlot}"</p>
+        <p class="movie-data" th:text="${movie_key.moviePlot}"</p>
     </div>
 
     <div class="table">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Release Date</span></label>
-        <p class="movie-data" th:text="${key_movie.movieReleaseDate}"</p>
+        <p class="movie-data" th:text="${movie_key.movieReleaseDate}"</p>
     </div>
 
     <div class="table-bordered">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Runtime</span></label>
-        <p class="movie-data" th:text="${key_movie.movieRuntime}"</p>
+        <p class="movie-data" th:text="${movie_key.movieRuntime}"</p>
     </div>
 
     <div class="table">
-        <label class="float-sm-left">
-            <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Certificate</span></label>
-        <p class="movie-data" th:text="${key_movie.movieCertificate}"</p>
-    </div>
-
-    <div class="table-bordered">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Rating</span></label>
-        <p class="movie-data" th:text="${key_movie.movieRating}"</p>
-    </div>
-
-    <div class="table">
-        <label class="float-sm-left">
-            <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Genre</span></label>
-        <p class="movie-data" th:text="${key_movie.genreType}"</p>
+        <p class="movie-data" th:text="${movie_key.userRating}"</p>
     </div>
 
     <div class="table-bordered">
         <label class="float-sm-left">
-            <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Studio</span></label>
-        <p class="movie-data" th:text="${key_movie.studioName}"</p>
+            <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Genre</span></label>
+        <p class="movie-data" th:text="${movie_key.genreType}"</p>
     </div>
 
     <div class="movie-data">
-        <a th:href="${key_movie.trailerURL}" target="_blank">
+        <a th:href="${movie_key.trailerLink}" target="_blank">
             <style>
 .button {
   display: inline-block;
@@ -134,7 +115,7 @@
     <div class="table-bordered">
         <label class="float-sm-left">
             <span class="h6 small bg-white text-muted pt-1 pl-2 pr-2">Your Review</span></label>
-        <p class="movie-data" th:text="${key_movie.reviewBody}"</p>
+        <p class="movie-data" th:text="${movie_key.userReview}"</p>
     </div>
 </div>
 </body>
